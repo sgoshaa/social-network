@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16-1
+      author: pash
+      changes:
+        - createTable:
+            tableName: notifications
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type_id
+                  type: VARCHAR(25)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sent_time
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: entity_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: person_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: contact
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: delivered
+                  type: boolean
+                  constraints:
+                    nullable: false

@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 37-4
+      author: Igor_Spirin
+      changes:
+        - createTable:
+            tableName: base_entity
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true

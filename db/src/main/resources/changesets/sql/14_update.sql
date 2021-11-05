@@ -1,0 +1,10 @@
+UPDATE public.users SET id = 11000 + id;
+UPDATE public.persons SET id = 11000 + id;
+UPDATE public.posts SET id = 10000 + id, author_id = 11000 + author_id;
+UPDATE public.post_comment SET  id = 10000 + id, post_id = 10000 + post_id, person_id = 11000 + person_id;
+UPDATE public.friendship SET dst_person_id =  11000 + dst_person_id, src_person_id = src_person_id + 11000;
+UPDATE public.post_like SET id =  13000 + id;
+UPDATE public.comment_like SET id =  14000 + id;
+UPDATE public.tags SET id =  15000 + id;
+UPDATE public.post2tag SET id =  16000 + id, tag_id = tag_id + 15000;
+UPDATE public.user_settings  SET id =  17000 + id;

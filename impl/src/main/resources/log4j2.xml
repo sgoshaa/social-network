@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_CONSOLE_PATTERN">
+            %5p %d{yyyy-MM-dd HH:mm:ss.SSS} ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex
+        </Property>
+        <Property name="LOG_FILE_PATTERN">
+            %-5level %d{HH:mm:ss.SSS} [%t] %logger{36} - %msg%n
+        </Property>
+        <Property name="FILE_PATH">
+            <!--            /home/paul/Рабочий стол/logs-->
+
+            <!--
+            ToDo uncomment if need to write files
+            -->
+            <!--                /home/user/logs-->
+        </Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="CONSOLE_APPENDER" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_CONSOLE_PATTERN}"/>
+        </Console>
+        <!--
+         ToDo uncomment if need to write files
+         -->
+        <!--        <RollingFile name="FILE_ERROR_APPENDER" fileName="${FILE_PATH}/error/error.log"-->
+        <!--                     filePattern="/error-%d{yyyy-MM-dd}-%i.log">-->
+        <!--            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>-->
+        <!--            <PatternLayout>-->
+        <!--                <Pattern>${LOG_FILE_PATTERN}</Pattern>-->
+        <!--            </PatternLayout>-->
+        <!--            <Policies>-->
+        <!--                <SizeBasedTriggeringPolicy size="2MB"/>-->
+        <!--            </Policies>-->
+        <!--            <DefaultRolloverStrategy max="10"/>-->
+        <!--        </RollingFile>-->
+
+        <!--        <RollingFile name="FILE_INFO_APPENDER" fileName="${FILE_PATH}/info/info.log"-->
+        <!--                     filePattern="/info-%d{yyyy-MM-dd}-%i.log">-->
+        <!--            <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="ACCEPT"/>-->
+        <!--            <PatternLayout>-->
+        <!--                <Pattern>${LOG_FILE_PATTERN}</Pattern>-->
+        <!--            </PatternLayout>-->
+        <!--            <Policies>-->
+        <!--                <SizeBasedTriggeringPolicy size="2MB"/>-->
+        <!--            </Policies>-->
+        <!--            <DefaultRolloverStrategy max="10"/>-->
+        <!--        </RollingFile>-->
+
+        <!--        <RollingFile name="FILE_TRACE_APPENDER" fileName="${FILE_PATH}/trace/trace.log"-->
+        <!--                     filePattern="/info-%d{yyyy-MM-dd}-%i.log">-->
+        <!--            <ThresholdFilter level="TRACE" onMatch="ACCEPT" onMismatch="DENY"/>-->
+        <!--            <PatternLayout>-->
+        <!--                <Pattern>${LOG_FILE_PATTERN}</Pattern>-->
+        <!--            </PatternLayout>-->
+        <!--            <Policies>-->
+        <!--                <SizeBasedTriggeringPolicy size="2MB"/>-->
+        <!--            </Policies>-->
+        <!--            <DefaultRolloverStrategy max="10"/>-->
+        <!--        </RollingFile>-->
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="CONSOLE_APPENDER"/>
+
+            <!--
+            ToDo uncomment if need to write files
+            -->
+            <!--            <AppenderRef ref="FILE_ERROR_APPENDER"/>-->
+            <!--            <AppenderRef ref="FILE_INFO_APPENDER"/>-->
+            <!--            <AppenderRef ref="FILE_TRACE_APPENDER"/>-->
+        </Root>
+    </Loggers>
+</Configuration>

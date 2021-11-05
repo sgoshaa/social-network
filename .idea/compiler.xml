@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Annotation profile for Group15 :: SocialNetwork" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.4.2.Final/mapstruct-processor-1.4.2.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.4.2.Final/mapstruct-1.4.2.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+        </processorPath>
+        <module name="ru.skillbox.diplom.db" />
+        <module name="ru.skillbox.diplom.api" />
+        <module name="ru.skillbox.diplom.impl" />
+        <module name="ru.skillbox.diplom.domain" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ru.skillbox.diplom.api" target="11" />
+      <module name="ru.skillbox.diplom.db" target="11" />
+      <module name="ru.skillbox.diplom.domain" target="11" />
+      <module name="ru.skillbox.diplom.impl" target="11" />
+      <module name="socialnetwork" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ru.skillbox.diplom.api" options="-parameters" />
+      <module name="ru.skillbox.diplom.db" options="-parameters" />
+      <module name="ru.skillbox.diplom.domain" options="-parameters" />
+      <module name="ru.skillbox.diplom.impl" options="-parameters" />
+    </option>
+  </component>
+</project>

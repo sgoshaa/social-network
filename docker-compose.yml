@@ -1,0 +1,25 @@
+version: '3'
+services:
+  social:
+    image: kholmden/skillbox:latest
+    container_name: socail_network
+    ports:
+      - 8086:8086
+    depends_on:
+      - database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_LIQUIBASE_DROP-FIRST=true
+  database:
+    image: postgres:latest
+    container_name: psql
+    ports:
+      - 5432:5432
+    restart: on-failure
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres

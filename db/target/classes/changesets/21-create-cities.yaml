@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - logicalFilePath: db/src/main/resources/dbchangelog-master.xml
+  - changeSet:
+      id: 21
+      author: pash
+      changes:
+        - createTable:
+            tableName: cities
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: id_country
+                  type: int
+                  constraints:
+                    nullable: false

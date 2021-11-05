@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - logicalFilePath: db/src/main/resources/dbchangelog-master.xml
+  - changeSet:
+      id: 14-3
+      author: pavelM
+      changes:
+        - createTable:
+            tableName: comment_like
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: comment_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: time
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: person_id
+                  type: int
+                  constraints:
+                    nullable: true

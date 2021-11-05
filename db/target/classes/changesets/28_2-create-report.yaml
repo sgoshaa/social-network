@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - logicalFilePath: db/src/main/resources/dbchangelog-master.xml
+  - changeSet:
+      id: 28-2
+      author: irakli
+      changes:
+        - createTable:
+            tableName: report
+            columns:
+              - column:
+                  name: person_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: post_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: time
+                  type: datetime
+                  constraints:
+                    nullable: false

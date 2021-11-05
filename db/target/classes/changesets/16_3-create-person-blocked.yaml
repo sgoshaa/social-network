@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - logicalFilePath: db/src/main/resources/dbchangelog-master.xml
+  - changeSet:
+      id: 16-3
+      author: pash
+      changes:
+        - createTable:
+            tableName: person_blocked
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: person_id
+                  type: INT
+              - column:
+                  name: blocked_id
+                  type: INT
+              - column:
+                  name: time
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: action
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+                    defaultValue: "BLOCK"

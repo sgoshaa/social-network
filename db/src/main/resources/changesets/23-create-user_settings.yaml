@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - logicalFilePath: db/src/main/resources/dbchangelog-master.xml
+  - changeSet:
+      id: 23
+      author: pash
+      changes:
+        - createTable:
+            tableName: user_settings
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: notification_type_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: value
+                  type: boolean
+                  constraints:
+                    nullable: false
+                    defaultValue: true

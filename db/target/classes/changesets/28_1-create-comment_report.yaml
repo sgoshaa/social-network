@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - logicalFilePath: db/src/main/resources/dbchangelog-master.xml
+  - changeSet:
+      id: 28-1
+      author: irakli
+      changes:
+        - createTable:
+            tableName: comment_report
+            columns:
+              - column:
+                  name: comment_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: person_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: time
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: post_comment_id
+                  type: int
+                  constraints:
+                    nullable: false

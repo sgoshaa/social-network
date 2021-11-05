@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - logicalFilePath: db/src/main/resources/dbchangelog-master.xml
+  - changeSet:
+      id: 1092
+      author: alex_uglin
+      changes:
+        - createTable:
+            tableName: block_histories
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: time
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: person_id
+                  type: int
+              - column:
+                  name: post_id
+                  type: int
+              - column:
+                  name: comment_id
+                  type: int
+              - column:
+                  name: action
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+                    defaultValue: "BLOCK"

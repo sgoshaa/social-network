@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ru.skill.group15</groupId>
+        <artifactId>socialnetwork</artifactId>
+        <version>${revision}${sha1}${changelist}</version>
+    </parent>
+    <name>Group15 :: SocialNetwork :: impl</name>
+    <artifactId>ru.skillbox.diplom.impl</artifactId>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${org.springframework.version}</version>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>ru.skillbox.diplom.Application</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${dockerfile-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>build-push</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+<!--                            "push" only for dockerhub registered users! cmd.exe -> docker login-->
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+<!--                    use your name!-->
+                    <repository>skillboxgroup15/sn</repository>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>DockerHub</id>
+            <name>DockerHub</name>
+            <uniqueVersion>false</uniqueVersion>
+            <layout>legacy</layout>
+            <url>https://index.docker.io/v1/</url>
+        </repository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>ru.skill.group15</groupId>
+            <artifactId>ru.skillbox.diplom.api</artifactId>
+            <version>${revision}${sha1}${changelist}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.skill.group15</groupId>
+            <artifactId>ru.skillbox.diplom.db</artifactId>
+            <version>${revision}${sha1}${changelist}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.skill.group15</groupId>
+            <artifactId>ru.skillbox.diplom.domain</artifactId>
+            <version>${revision}${sha1}${changelist}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jsonwebtoken.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.cloudinary</groupId>
+            <artifactId>cloudinary-http44</artifactId>
+            <version>${cloudinary-http44.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>2.3.8.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - logicalFilePath: db/src/main/resources/dbchangelog-master.xml
+  - changeSet:
+      id: 1017-1
+      author: dima
+      changes:
+        - createTable:
+            tableName: dialogs
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: id
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: true
+                  name: message_id
+                  type: INT
+
+  - changeSet:
+      id: 1018-3
+      author: dima
+      changes:
+        - createTable:
+            tableName: user2dialog
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: id
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: dialog_id
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: INT

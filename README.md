@@ -2,7 +2,8 @@
 
 Skillbox team dev learning social network project
 
-Данный проект создавался командой разработчиков,одним из которых был я.
+# Данный проект создавался командой разработчиков,одним из которых был я.
+# Инструменты Java, Spring Boot,Spring Security, Spring JPA, Hibernate, Liquibase,MapStruct
  
 Мной был создан:
 Cервис Notifications и все что с ним связано:
